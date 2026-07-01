@@ -22,10 +22,6 @@ jobs:
         with:
           submodules: recursive
 
-        - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: 'npm'
 
       - name: Cache downloaded dependencies
         uses: actions/cache@v4
