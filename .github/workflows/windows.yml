@@ -32,7 +32,7 @@ jobs:
             windows-deps-
 
       - name: Prime sccache
-        uses: hendrikmuhs/ccache-action@v1.6
+        uses: hendrikmuhs/ccache-action@v1.2.23
         with:
           key: windows-${{ env.BUILD_TYPE }}
           max-size: 1000M
