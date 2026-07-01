@@ -24,7 +24,7 @@ jobs:
 
 
       - name: Cache downloaded dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: deps
           key: windows-deps-${{ hashFiles('CI/before_script.msvc.sh') }}
