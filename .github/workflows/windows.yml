@@ -6,6 +6,7 @@ on:
 env:
   BUILD_TYPE: RelWithDebInfo
   BUILD_DIR: MSVC2022_64_Ninja
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
 jobs:
   Windows:
