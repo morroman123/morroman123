@@ -6,7 +6,7 @@ on:
 env:
   BUILD_TYPE: RelWithDebInfo
   BUILD_DIR: MSVC2022_64_Ninja
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   Windows:
@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
