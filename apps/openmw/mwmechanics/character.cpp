@@ -2165,8 +2165,7 @@ void CharacterController::update(float duration)
         movementSettings.mSpeedFactor = std::min(vec.length(), 1.f);
         vec.normalize();
 
-        if (mIsMovingBackward)
-        movementSettings.mSpeedFactor *= 0.1f;
+        
 
         // TODO: Move this check to mwinput.
         // Joystick analogue movement.
