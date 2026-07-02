@@ -56,8 +56,8 @@ Actor::Actor(const MWWorld::Ptr& ptr, const Resource::BulletShape* shape, Physic
             btVector3 max;
 
             shape->mCollisionShape->getAabb(transform, min, max);
-            mHalfExtents.x() = (max[0] - min[0])/2.f;
-            mHalfExtents.y() = (max[1] - min[1])/2.f;
+            mHalfExtents.x() = (max[0] - min[0])/3.f;
+            mHalfExtents.y() = (max[1] - min[1])/3.f;
             mHalfExtents.z() = (max[2] - min[2])/2.f;
 
             mMeshTranslation = osg::Vec3f(0.f, 0.f, mHalfExtents.z());
