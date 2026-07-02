@@ -287,7 +287,7 @@ void CharacterController::refreshHitRecoilAnims(CharacterState& idle)
                 {
                     mHitState = CharState_Hit;
                     mCurrentHit = anim;
-                    mAnimation->play(mCurrentHit, Priority_Hit, MWRender::Animation::BlendMask_All, true, 1, "start", "stop", 0.0f, 0);
+                    mAnimation->play(mCurrentHit, Priority_Hit, MWRender::Animation::BlendMask_All, true, 0.1f, "start", "stop", 0.0f, 0);
                 }
             }
         }
