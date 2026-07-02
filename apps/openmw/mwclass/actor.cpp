@@ -100,6 +100,8 @@ namespace MWClass
         float moveSpeed = this->getMaxSpeed(ptr) * movementSettings.mSpeedFactor;
         if (movementSettings.mIsStrafing)
             moveSpeed *= 0.75f;
+        if (movementSettings.mIsBackpedal)
+            moveSpeed *= 0.15f;
         return moveSpeed;
     }
 }
