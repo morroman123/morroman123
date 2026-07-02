@@ -1551,7 +1551,7 @@ bool CharacterController::updateWeaponState(CharacterState& idle)
         isWeapon = (weapon != inv.end() && weapon->getTypeName() == typeid(ESM::Weapon).name());
         if (isWeapon)
         {
-            weapSpeed = weapon->get<ESM::Weapon>()->mBase->mData.mSpeed * (0.5 + (stats.getAttribute(ESM::Attribute::Speed).getModified() * 0.01));
+            weapSpeed = weapon->get<ESM::Weapon>()->mBase->mData.mSpeed * (0.7 + (stats.getAttribute(ESM::Attribute::Speed).getModified() * 0.006));
             MWWorld::ConstContainerStoreIterator ammo = inv.getSlot(MWWorld::InventoryStore::Slot_Ammunition);
             int ammotype = getWeaponType(weapon->get<ESM::Weapon>()->mBase->mData.mType)->mAmmoType;
             if (ammotype != ESM::Weapon::None && (ammo == inv.end() || ammo->get<ESM::Weapon>()->mBase->mData.mType != ammotype))
