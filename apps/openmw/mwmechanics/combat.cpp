@@ -510,7 +510,7 @@ namespace MWMechanics
         static const float fDamageStrengthMult = MWBase::Environment::get().getWorld()->getStore().get<ESM::GameSetting>()
                 .find("fDamageStrengthMult")->mValue.getFloat();
         damage *= (fDamageStrengthBase / 2) +
-                (attacker.getClass().getCreatureStats(attacker).getAttribute(ESM::Attribute::Strength).getModified() * fDamageStrengthMult * 0.1f + (skillValue / 4));
+                (attacker.getClass().getCreatureStats(attacker).getAttribute(ESM::Attribute::Strength).getModified() * fDamageStrengthMult * 0.1f + (skillValue / 8));
     }
 
     void getHandToHandDamage(const MWWorld::Ptr &attacker, const MWWorld::Ptr &victim, float &damage, bool &healthdmg, float attackStrength)
