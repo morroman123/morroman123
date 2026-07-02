@@ -660,7 +660,7 @@ if [ -z $SKIP_DOWNLOAD ]; then
 	# LuaJIT
 	if [ -z "${LUAJIT_INCLUDE_DIR:-}" ] || [ -z "${LUAJIT_LIBRARY:-}" ] || [ -z "${LUAJIT_DLL:-}" ]; then
 		download "LuaJIT ${LUAJIT_VER}" \
-			"https://github.com/Skooma-Breath/LuaJIT/releases/download/latest-build/luajit-windows-x86_64.zip" \
+			"https://github.com/DreamWeave-MP/LuaJIT/releases/download/Stable-CI/LuaJIT-Windows.7z" \
 			"LuaJIT.zip"
 	fi
 
