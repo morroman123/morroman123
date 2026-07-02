@@ -2227,6 +2227,7 @@ void CharacterController::update(float duration)
         if (!turnToMovementDirection || isFirstPersonPlayer)
         {
             movementSettings.mIsStrafing = std::abs(vec.x()) > std::abs(vec.y()) * 2;
+            movementSettings.mIsBackpedal = (vec.y()) < 0;
             stats.setSideMovementAngle(0);
         }
         else if (canMove)
