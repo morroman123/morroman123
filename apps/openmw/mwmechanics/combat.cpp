@@ -494,6 +494,8 @@ namespace MWMechanics
 
     void adjustWeaponDamage(float &damage, const MWWorld::Ptr &weapon, const MWWorld::Ptr& attacker)
     {
+        int skillValue = attacker.getClass().getSkill(attacker, weapon.getClass().getEquipmentSkill(weapon));
+        
         if (weapon.isEmpty())
             return;
 
