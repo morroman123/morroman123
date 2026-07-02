@@ -18,6 +18,7 @@ namespace MWMechanics
         // These fields can not be private fields in CharacterController, because Actor::getCurrentSpeed uses it.
         float mSpeedFactor;
         bool mIsStrafing;
+        bool mIsBackpedal;
 
         Movement()
         {
@@ -25,6 +26,7 @@ namespace MWMechanics
             mRotation[0] = mRotation[1] = mRotation[2] = 0.0f;
             mSpeedFactor = 1.f;
             mIsStrafing = false;
+            mIsBackpedal = false;
         }
 
         osg::Vec3f asVec3()
