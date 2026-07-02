@@ -99,7 +99,7 @@ namespace MWClass
         const MWMechanics::Movement& movementSettings = ptr.getClass().getMovementSettings(ptr);
         float moveSpeed = this->getMaxSpeed(ptr) * movementSettings.mSpeedFactor;
         if (movementSettings.mIsStrafing)
-            moveSpeed *= 0.15f;
+            moveSpeed *= 0.75f;
         return moveSpeed;
     }
 }
