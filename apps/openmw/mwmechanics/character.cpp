@@ -287,7 +287,9 @@ void CharacterController::refreshHitRecoilAnims(CharacterState& idle)
                 {
                     mHitState = CharState_Hit;
                     mCurrentHit = anim;
-                    mAnimation->play(mCurrentHit, Priority_Hit, MWRender::Animation::BlendMask_All, true, 0.1f, "start", "stop", 0.0f, 0);
+                    int stunChance = Misc::Rng::rollClosedProbability() * 2;
+                    if (stunChance > 1)
+                    mAnimation->play(mCurrentHit, Priority_Hit, MWRender::Animation::BlendMask_All, true, ( 0.7 + (stats.getAttribute(ESM::Attribute::Agility).getModified() * 0.006)), "start", "stop", 0.0f, 0);
                 }
             }
         }
