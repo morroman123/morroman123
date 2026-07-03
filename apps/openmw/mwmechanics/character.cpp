@@ -2227,10 +2227,11 @@ void CharacterController::update(float duration)
         float effectiveRotation = rot.z();
         bool canMove = cls.getMaxSpeed(mPtr) > 0;
         static const bool turnToMovementDirection = Settings::Manager::getBool("turn to movement direction", "Game");
+        movementSettings.mIsBackpedal = (vec.y()) < 0;
         if (!turnToMovementDirection || isFirstPersonPlayer)
         {
             movementSettings.mIsStrafing = std::abs(vec.x()) > std::abs(vec.y()) * 2;
-            movementSettings.mIsBackpedal = (vec.y()) < 0;
+            
             stats.setSideMovementAngle(0);
         }
         else if (canMove)
