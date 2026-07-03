@@ -289,10 +289,10 @@ void CharacterController::refreshHitRecoilAnims(CharacterState& idle)
                     mCurrentHit = anim;
 
                     float stunChance = Misc::Rng::rollProbability();
-                    float agilityLocal = mPtr.getClass().getCreatureStats(mPtr).getAttribute(ESM::Attribute::Agility).getModified() / 50;
-                    float enduranceLocal = mPtr.getClass().getCreatureStats(mPtr).getAttribute(ESM::Attribute::Endurance).getModified() / 50;
+                    float agilityLocal = 0.65 + ( mPtr.getClass().getCreatureStats(mPtr).getAttribute(ESM::Attribute::Agility).getModified() / 160);
+                    float enduranceLocal = mPtr.getClass().getCreatureStats(mPtr).getAttribute(ESM::Attribute::Endurance).getModified() * 0.65;
         
-                    if (stunChance <= enduranceLocal/3.f)
+                    if (stunChance >= enduranceLocal/100.f)
                     mAnimation->play(mCurrentHit, Priority_Hit, MWRender::Animation::BlendMask_All, true, agilityLocal, "start", "stop", 0.0f, 0);
                 }
             }
