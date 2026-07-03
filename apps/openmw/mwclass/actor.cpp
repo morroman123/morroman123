@@ -101,7 +101,7 @@ namespace MWClass
         if (movementSettings.mIsStrafing)
             moveSpeed *= 0.75f;
         if (movementSettings.mIsBackpedal)
-            moveSpeed *= 1.65f;
+            moveSpeed *= 0.65f;
         return moveSpeed;
     }
 }
