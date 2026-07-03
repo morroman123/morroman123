@@ -289,7 +289,7 @@ void CharacterController::refreshHitRecoilAnims(CharacterState& idle)
                     mCurrentHit = anim;
 
                     float stunChance = Misc::Rng::rollProbability();
-                    float agilityLocal = 0.65 + ( mPtr.getClass().getCreatureStats(mPtr).getAttribute(ESM::Attribute::Agility).getModified() / 160);
+                    float agilityLocal = 0.8 + ( mPtr.getClass().getCreatureStats(mPtr).getAttribute(ESM::Attribute::Agility).getModified() / 170);
                     float enduranceLocal = mPtr.getClass().getCreatureStats(mPtr).getAttribute(ESM::Attribute::Endurance).getModified() * 0.65;
         
                     if (stunChance >= enduranceLocal/100.f)
