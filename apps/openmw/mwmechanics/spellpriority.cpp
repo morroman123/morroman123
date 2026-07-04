@@ -19,6 +19,9 @@
 #include "weapontype.hpp"
 #include "summoning.hpp"
 #include "spellutil.hpp"
+#include "aicombataction.hpp"
+
+zTest = true;
 
 namespace
 {
