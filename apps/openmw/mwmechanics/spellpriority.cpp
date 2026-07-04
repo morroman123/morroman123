@@ -237,6 +237,8 @@ namespace MWMechanics
             {
                 if (zTest == true)
                     return 1000.f;
+                if (zTest == false)
+                    return 0.f;
             }
             
         case ESM::MagicEffect::Blind:
