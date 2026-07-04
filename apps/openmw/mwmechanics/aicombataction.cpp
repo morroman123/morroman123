@@ -19,6 +19,8 @@
 #include "spellpriority.hpp"
 #include "weapontype.hpp"
 
+bool zTest = false;
+
 namespace MWMechanics
 {
     float suggestCombatRange(int rangeTypes)
