@@ -21,7 +21,7 @@
 #include "spellutil.hpp"
 #include "aicombataction.hpp"
 
-zTest = true;
+
 
 namespace
 {
@@ -114,6 +114,8 @@ namespace MWMechanics
 
         float successChance = MWMechanics::getSpellSuccessChance(spell, actor);
         if (successChance == 0.f)
+            return 0.f;
+        if (zTest == true)
             return 0.f;
 
         if (spell->mData.mType != ESM::Spell::ST_Spell)
