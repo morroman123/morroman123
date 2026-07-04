@@ -290,6 +290,8 @@ namespace MWMechanics
 
         if (minusZDist)
             dist -= std::abs(actor1Pos.z() - actor2Pos.z());
+        if (actor1Pos.z() - actor2Pos.z() < 0)
+            zTest = true;
 
         return (dist
                 - MWBase::Environment::get().getWorld()->getHalfExtents(actor1).y()
