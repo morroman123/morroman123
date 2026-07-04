@@ -8,6 +8,19 @@
 
 namespace MWMechanics
 {
+    struct zTest
+    {
+        
+        bool tooHigh;
+
+        zTest()
+        {
+            
+            tooHigh = false;
+        }
+
+        
+    };
     class Action
     {
     public:
