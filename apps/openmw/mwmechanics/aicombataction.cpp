@@ -292,7 +292,7 @@ namespace MWMechanics
         if (minusZDist)
             dist -= std::abs(actor1Pos.z() - actor2Pos.z());
         if (zDist < 10)
-            zTest = true;
+            zTest = false;
         
 
         return (dist
