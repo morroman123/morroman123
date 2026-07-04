@@ -244,7 +244,8 @@ namespace MWMechanics
                 float distTest = (actorPos.z() - enemyPos.z());
                 float rand = Misc::Rng::rollProbability();
 
-                if (getWeaponType(ESM::Weapon::Spell) == 1)
+                
+                if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Spell)
                 rand = 0;
 
                 if (rand >= 2/3.f)
