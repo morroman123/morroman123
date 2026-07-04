@@ -1,6 +1,9 @@
 #include "spellpriority.hpp"
 #include "weaponpriority.hpp"
 
+#include <components/misc/mathutil.hpp>
+#include <components/misc/rng.hpp>
+
 #include <components/esm/loadench.hpp>
 #include <components/esm/loadmgef.hpp>
 #include <components/esm/loadspel.hpp>
@@ -239,7 +242,10 @@ namespace MWMechanics
                 osg::Vec3f enemyPos = enemy.getRefData().getPosition().asVec3();
 
                 float distTest = (actorPos.z() - enemyPos.z());
-                
+                float rand = Misc::Rng::rollProbability();
+
+                if (rand >= 2/3.f)
+                    return 0.f;
                 if (distTest <= -100)
                     return 1000.f;
                 else
