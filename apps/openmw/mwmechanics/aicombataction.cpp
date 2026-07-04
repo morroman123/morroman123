@@ -287,12 +287,12 @@ namespace MWMechanics
         osg::Vec3f actor2Pos = actor2.getRefData().getPosition().asVec3();
 
         float dist = (actor1Pos - actor2Pos).length();
-        float zDist = (actor1Pos.z() - actor2Pos.z());
+        if (dist > 500)
+            zTest = true;
 
         if (minusZDist)
             dist -= std::abs(actor1Pos.z() - actor2Pos.z());
-        if (zDist < 10)
-            zTest = false;
+        
         
 
         return (dist
