@@ -148,7 +148,7 @@ namespace MWMechanics
         Spells& spells = actor.getClass().getCreatureStats(actor).getSpells();
 
         float bestActionRating = 0.f;
-        float antiFleeRating = -200.f;
+        float antiFleeRating = 0.f;
         // Default to hand-to-hand combat
         std::shared_ptr<Action> bestAction (new ActionWeapon(MWWorld::Ptr()));
         if (actor.getClass().isNpc() && actor.getClass().getNpcStats(actor).isWerewolf())
