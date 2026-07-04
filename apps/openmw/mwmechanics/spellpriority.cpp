@@ -115,8 +115,6 @@ namespace MWMechanics
         float successChance = MWMechanics::getSpellSuccessChance(spell, actor);
         if (successChance == 0.f)
             return 0.f;
-        if (zTest == true)
-            return 0.f;
 
         if (spell->mData.mType != ESM::Spell::ST_Spell)
             return 0.f;
@@ -225,7 +223,7 @@ namespace MWMechanics
         case ESM::MagicEffect::ResistBlightDisease:
         case ESM::MagicEffect::ResistCommonDisease:
         case ESM::MagicEffect::ResistCorprusDisease:
-        case ESM::MagicEffect::Invisibility:
+        
         case ESM::MagicEffect::Chameleon:
         case ESM::MagicEffect::NightEye:
         case ESM::MagicEffect::Vampirism:
@@ -235,7 +233,12 @@ namespace MWMechanics
         case ESM::MagicEffect::CommandCreature:
         case ESM::MagicEffect::CommandHumanoid:
             return 0.f;
-
+        case ESM::MagicEffect::Invisibility:
+            {
+                if (zTest == true)
+                    return 1000.f;
+            }
+            
         case ESM::MagicEffect::Blind:
             {
                 if (enemy.isEmpty())
