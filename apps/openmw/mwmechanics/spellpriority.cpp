@@ -238,7 +238,7 @@ namespace MWMechanics
                 osg::Vec3f actorPos = actor.getRefData().getPosition().asVec3();
                 osg::Vec3f enemyPos = enemy.getRefData().getPosition().asVec3();
 
-                float distTest = (actorPos.z - enemyPos.z).length();
+                float distTest = (actorPos.z() - enemyPos.z());
                 
                 if (distTest <= -100)
                     return 1000.f;
