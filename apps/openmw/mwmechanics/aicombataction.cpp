@@ -287,11 +287,13 @@ namespace MWMechanics
         osg::Vec3f actor2Pos = actor2.getRefData().getPosition().asVec3();
 
         float dist = (actor1Pos - actor2Pos).length();
+        float zDist = (actor1Pos.z() - actor2Pos.z());
 
         if (minusZDist)
             dist -= std::abs(actor1Pos.z() - actor2Pos.z());
-        if (actor1Pos.z() - actor2Pos.z() < 0)
+        if (zDist < 10)
             zTest = true;
+        
 
         return (dist
                 - MWBase::Environment::get().getWorld()->getHalfExtents(actor1).y()
