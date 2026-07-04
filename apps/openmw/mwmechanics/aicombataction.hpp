@@ -6,7 +6,6 @@
 #include "../mwworld/ptr.hpp"
 #include "../mwworld/containerstore.hpp"
 
-extern bool zTest;
 
 namespace MWMechanics
 {
