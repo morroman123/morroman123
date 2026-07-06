@@ -129,10 +129,9 @@ namespace MWMechanics
             const ESM::Race* race = MWBase::Environment::get().getWorld()->getStore().get<ESM::Race>().find(raceid);
             if (race->mPowers.exists(spell->mId))
                 float rand = Misc::Rng::rollProbability();
-                if (rand >= 2/3.f)
+                
                     return 0.f;
-                else
-                break
+                
 
             
         }
