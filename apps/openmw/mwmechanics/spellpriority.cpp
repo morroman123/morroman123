@@ -132,7 +132,7 @@ namespace MWMechanics
                 if (rand >= 2/3.f)
                     return 0.f;
                 else
-                return 1000.f;
+                break
 
             
         }
