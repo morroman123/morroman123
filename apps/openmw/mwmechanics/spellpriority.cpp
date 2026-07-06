@@ -128,7 +128,11 @@ namespace MWMechanics
             std::string raceid = actor.get<ESM::NPC>()->mBase->mRace;
             const ESM::Race* race = MWBase::Environment::get().getWorld()->getStore().get<ESM::Race>().find(raceid);
             if (race->mPowers.exists(spell->mId))
-                return 0.f;
+                float rand2 = Misc::Rng::rollProbability();
+                if (rand2 >= 1/5.f)
+                    return 0.f;
+                else
+                return 100.f;
         }
 
         // Spells don't stack, so early out if the spell is still active on the target
