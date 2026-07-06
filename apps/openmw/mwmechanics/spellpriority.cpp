@@ -128,8 +128,8 @@ namespace MWMechanics
             std::string raceid = actor.get<ESM::NPC>()->mBase->mRace;
             const ESM::Race* race = MWBase::Environment::get().getWorld()->getStore().get<ESM::Race>().find(raceid);
             if (race->mPowers.exists(spell->mId))
-                float rand2 = Misc::Rng::rollProbability();
-                if (rand2 >= 1/5.f)
+                float rand = Misc::Rng::rollProbability();
+                if (rand >= 1/5.f)
                     return 0.f;
                 else
                 return 100.f;
