@@ -129,10 +129,12 @@ namespace MWMechanics
             const ESM::Race* race = MWBase::Environment::get().getWorld()->getStore().get<ESM::Race>().find(raceid);
             if (race->mPowers.exists(spell->mId))
                 float rand = Misc::Rng::rollProbability();
-                if (rand >= 1/5.f)
+                if (rand >= 2/3.f)
                     return 0.f;
                 else
-                return 100.f;
+                return 1000.f;
+
+            
         }
 
         // Spells don't stack, so early out if the spell is still active on the target
