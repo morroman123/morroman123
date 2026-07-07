@@ -123,16 +123,7 @@ namespace MWMechanics
             return 0.f;
 
         // Don't make use of racial bonus spells, like MW. Can be made optional later
-        if (actor.getClass().isNpc())
-        {
-            std::string raceid = actor.get<ESM::NPC>()->mBase->mRace;
-            const ESM::Race* race = MWBase::Environment::get().getWorld()->getStore().get<ESM::Race>().find(raceid);
-            if (race->mPowers.exists(spell->mId))
-            {
-                return 1000.f;
-                
-                    
-            }
+        
                     
                 
 
