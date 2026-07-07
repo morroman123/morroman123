@@ -244,6 +244,10 @@ namespace MWMechanics
         case ESM::MagicEffect::CommandCreature:
         case ESM::MagicEffect::CommandHumanoid:
             return 0.f;
+
+        case ESM::MagicEffect::Sanctuary:
+            return 1000.f;
+                
         case ESM::MagicEffect::Invisibility:
             {
                 osg::Vec3f actorPos = actor.getRefData().getPosition().asVec3();
