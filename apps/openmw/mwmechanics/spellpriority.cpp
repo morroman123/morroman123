@@ -121,7 +121,8 @@ namespace MWMechanics
 
         if (spell->mData.mType != ESM::Spell::ST_Spell)
         {
-            float rand = Misc::Rng::rollProbability();
+            if (float rand != null)
+             rand = Misc::Rng::rollProbability();
             
         
             if (rand >= 50/100.f)
