@@ -119,8 +119,7 @@ namespace MWMechanics
         if (successChance == 0.f)
             return 0.f;
 
-        if (spell->mData.mType != ESM::Spell::ST_Spell)
-            return 0.f;
+        
 
         // Don't make use of racial bonus spells, like MW. Can be made optional later
         
