@@ -119,6 +119,15 @@ namespace MWMechanics
         if (successChance == 0.f)
             return 0.f;
 
+        if (spell->mData.mType != ESM::Spell::ST_Spell)
+        {
+            float rand = Misc::Rng::rollProbability();
+            
+        
+            if (rand >= 50/100.f)
+                    return 0.f;
+            
+        }
         
 
         // Don't make use of racial bonus spells, like MW. Can be made optional later
