@@ -122,7 +122,10 @@ namespace MWMechanics
         if (spell->mData.mType != ESM::Spell::ST_Spell)
         {
             std::optional<float> rand;
-            
+            if ( rand.has_value() )
+             rand = Misc::Rng::rollProbability();
+
+
             
         
             
