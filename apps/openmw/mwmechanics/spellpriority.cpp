@@ -23,7 +23,7 @@
 #include "summoning.hpp"
 #include "spellutil.hpp"
 #include "aicombataction.hpp"
-
+#include <optional>
 
 
 namespace
