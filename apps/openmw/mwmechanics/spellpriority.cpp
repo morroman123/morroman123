@@ -125,6 +125,9 @@ namespace MWMechanics
             if ( !rand.has_value() )
              rand = Misc::Rng::rollProbability();
 
+            if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Weapon)
+                return 0.f;
+
             if (rand >= 50/100.f)
                     return 0.f;
             
