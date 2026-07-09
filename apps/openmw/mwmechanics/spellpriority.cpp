@@ -125,7 +125,8 @@ namespace MWMechanics
             if ( rand.has_value() )
              rand = Misc::Rng::rollProbability();
 
-
+            if (rand >= 50/100.f)
+                    return 0.f;
             
         
             
