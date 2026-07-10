@@ -131,8 +131,10 @@ namespace MWMechanics
             if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Weapon)
                 return 0.f;
 
-            if (rand >= 50/100.f)
+            if (rand >= 60/100.f)
                     return 0.f;
+            if (rand < 40/100.f)
+                    return 1000.f;
             
         
             
@@ -349,8 +351,14 @@ namespace MWMechanics
         case ESM::MagicEffect::ResistPoison:
         case ESM::MagicEffect::ResistShock:
         case ESM::MagicEffect::SpellAbsorption:
+            return 0.f;
         case ESM::MagicEffect::Reflect:
+            if (actor.getClass().getCreatureStats(actor).getDrawState() != MWMechanics::DrawState_Spell)
+                float rand = Misc::Rng::rollProbability();
+            if (rand >= 50/100.f)
             return 0.f; // probably useless since we don't know in advance what the enemy will cast
+            else
+            return 1000.f;
 
         // don't cast these for now as they would make the NPC cast the same effect over and over again, especially when they have potions
         case ESM::MagicEffect::FortifyAttribute:
@@ -364,7 +372,15 @@ namespace MWMechanics
             //float rand = Misc::Rng::rollProbability(); //teststart
             
             //return 0.f; //orig
-            return 1000.f;
+            //float rand = Misc::Rng::rollProbability();
+            
+            //if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Spell)
+                //rand = 0;
+
+            //if (rand >= 2/3.f)
+                    return 0.f;
+            
+            //return 1000.f;
 
         case ESM::MagicEffect::Burden:
             {
