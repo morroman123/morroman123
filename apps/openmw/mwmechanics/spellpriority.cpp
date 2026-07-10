@@ -133,8 +133,8 @@ namespace MWMechanics
 
             if (rand >= 60/100.f)
                     return 0.f;
-            if (rand < 40/100.f)
-                    return 1000.f;
+            //if (rand < 40/100.f)//causes guard to repeatadly cast
+                    //return 1000.f;
             
         
             
