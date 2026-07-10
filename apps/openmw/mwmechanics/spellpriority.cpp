@@ -263,7 +263,8 @@ namespace MWMechanics
                 osg::Vec3f actorPos = actor.getRefData().getPosition().asVec3();
                 osg::Vec3f enemyPos = enemy.getRefData().getPosition().asVec3();
 
-                float distTest = (actorPos.z() - enemyPos.z());
+                //float distTest = (actorPos.z() - enemyPos.z());//orig
+                float distTest = (actorPos - enemyPos).length();
                 float rand = Misc::Rng::rollProbability();
 
                 
@@ -272,7 +273,8 @@ namespace MWMechanics
 
                 if (rand >= 2/3.f)
                     return 0.f;
-                if (distTest <= -100)
+                //if (distTest <= -100)//orig
+                if (distTest >= 500)//orig
                     return 1000.f;
                 else
                     return 0.f;
@@ -358,7 +360,11 @@ namespace MWMechanics
         case ESM::MagicEffect::FortifySkill:
         case ESM::MagicEffect::FortifyMaximumMagicka:
         case ESM::MagicEffect::FortifyAttack:
-            return 0.f;
+
+            //float rand = Misc::Rng::rollProbability(); //teststart
+            
+            //return 0.f; //orig
+            return 100.f;
 
         case ESM::MagicEffect::Burden:
             {
