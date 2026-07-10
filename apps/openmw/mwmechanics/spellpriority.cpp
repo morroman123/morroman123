@@ -123,7 +123,10 @@ namespace MWMechanics
         {
             std::optional<float> rand;
             if ( !rand.has_value() )
-             rand = Misc::Rng::rollProbability();
+            {
+                if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Nothing)
+                     rand = Misc::Rng::rollProbability();
+            }
 
             if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Weapon)
                 return 0.f;
