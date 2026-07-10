@@ -353,12 +353,14 @@ namespace MWMechanics
         case ESM::MagicEffect::SpellAbsorption:
             return 0.f;
         case ESM::MagicEffect::Reflect:
+            {
             if (actor.getClass().getCreatureStats(actor).getDrawState() != MWMechanics::DrawState_Spell)
                 float rand = Misc::Rng::rollProbability();
             if (rand >= 50/100.f)
             return 0.f; // probably useless since we don't know in advance what the enemy will cast
             if (rand < 50/100.f)
             return 1000.f;
+            }
 
         // don't cast these for now as they would make the NPC cast the same effect over and over again, especially when they have potions
         case ESM::MagicEffect::FortifyAttribute:
