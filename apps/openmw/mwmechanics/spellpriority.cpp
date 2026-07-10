@@ -256,7 +256,7 @@ namespace MWMechanics
             return 0.f;
 
         case ESM::MagicEffect::Sanctuary:
-            return 1000.f;
+            return 100.f;
                 
         case ESM::MagicEffect::Invisibility:
             {
@@ -274,7 +274,7 @@ namespace MWMechanics
                 if (rand >= 2/3.f)
                     return 0.f;
                 //if (distTest <= -100)//orig
-                if (distTest >= 500)//orig
+                if (distTest >= 1000)//orig
                     return 1000.f;
                 else
                     return 0.f;
@@ -364,7 +364,7 @@ namespace MWMechanics
             //float rand = Misc::Rng::rollProbability(); //teststart
             
             //return 0.f; //orig
-            return 100.f;
+            return 1000.f;
 
         case ESM::MagicEffect::Burden:
             {
