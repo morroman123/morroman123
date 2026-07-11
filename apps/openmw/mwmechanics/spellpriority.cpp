@@ -122,8 +122,21 @@ namespace MWMechanics
         if (spell->mData.mType != ESM::Spell::ST_Spell)
         {
             if (spell->mData.mType == ESM::Spell::ST_Power)
-            {                
-                return 1000.f;                  
+            { 
+                std::optional<float> rand;
+                if ( !rand.has_value() )
+                {
+                 rand = Misc::Rng::rollProbability();
+                }
+
+                if (rand >= 80/100.f)
+                {
+                    return 1000.f;
+                }
+                else
+                    return 0.f;
+                
+                                  
             }
             else
                  return 0.f;
