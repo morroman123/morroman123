@@ -884,8 +884,8 @@ namespace MWMechanics
         //magicka.setModified(magicka.getModified() + diff, 0);
         //magicka.setCurrent(magicka.getBase() * currentToBaseRatio, false, true);
         magicka.setBase(1);
-        magicka.setModified(1);
-        magicka.setCurrent(1);
+        magicka.setModified(1, 0);
+        magicka.setCurrent(1, false, true);
         creatureStats.setMagicka(magicka);
     }
 
