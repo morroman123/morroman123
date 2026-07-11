@@ -122,35 +122,12 @@ namespace MWMechanics
         if (spell->mData.mType != ESM::Spell::ST_Spell)
         {
             if (spell->mData.mType == ESM::Spell::ST_Power)
-            
-                    //{
-                    //std::optional<float> rand;
-                    
-                    //if (rand != 1)
-                      
-                //if (rand < 40/100.f)
-                    return 1000.f;
-                        //rand = 1;
-                    //}
+            {                
+                return 1000.f;                  
             }
             else
-
-            return 0.f;
-            //std::optional<float> rand;
-            //if ( !rand.has_value() )
-            //{
-                //if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Nothing)
-                     //rand = Misc::Rng::rollProbability();
-            //}
-
-            //if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Weapon)
-                //return 0.f;
-
-            //if (rand >= 60/100.f)
-                    //return 0.f;
+                 return 0.f;
             
-            //if (rand < 40/100.f)//causes guard to repeatadly cast
-                    //return 1000.f;
             
         
             
