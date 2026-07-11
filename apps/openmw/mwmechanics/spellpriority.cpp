@@ -121,18 +121,20 @@ namespace MWMechanics
 
         if (spell->mData.mType != ESM::Spell::ST_Spell)
         {
-            std::optional<float> rand;
-            if ( !rand.has_value() )
-            {
-                if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Nothing)
-                     rand = Misc::Rng::rollProbability();
-            }
+            
+            //std::optional<float> rand;
+            //if ( !rand.has_value() )
+            //{
+                //if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Nothing)
+                     //rand = Misc::Rng::rollProbability();
+            //}
 
-            if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Weapon)
-                return 0.f;
+            //if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Weapon)
+                //return 0.f;
 
-            if (rand >= 60/100.f)
-                    return 0.f;
+            //if (rand >= 60/100.f)
+                    //return 0.f;
+            
             //if (rand < 40/100.f)//causes guard to repeatadly cast
                     //return 1000.f;
             
@@ -150,8 +152,8 @@ namespace MWMechanics
             const ESM::Race* race = MWBase::Environment::get().getWorld()->getStore().get<ESM::Race>().find(raceid);
             if (race->mPowers.exists(spell->mId))
             {
-                if (rand < 40/100.f)
-                return 1000.f;
+                //if (rand < 40/100.f)
+                //return 1000.f;
             }
         }
 
