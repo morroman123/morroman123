@@ -138,6 +138,12 @@ namespace MWMechanics
                 {
                     return 0.f;
                 }
+                else
+                if (actor.getClass().getCreatureStats(actor).getDrawState() != MWMechanics::DrawState_Weapon)
+                {
+                     return 1000.f;
+                }
+                    
                 
                 
                                   
