@@ -875,7 +875,8 @@ namespace MWMechanics
         //float fort = 0 + creatureStats.getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 0.1;//edit
         //DynamicStat<float> magicka = (static_cast<float>(fort)) + creatureStats.getMagicka();
         DynamicStat<float> magicka = creatureStats.getMagicka();
-        float magicka2 = magicka;
+        magicka.setBase(magicka.getBase() + fort);
+        //float magicka2 = magicka;
         //double magicka2 = (static_cast<double>(magicka)) + fort;//edit
         //DynamicStat<float> magicka2 = magicka + fort;//edit
         float diff = (static_cast<int>(magickaFactor*intelligence)) - magicka.getBase();
