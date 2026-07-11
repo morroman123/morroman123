@@ -126,18 +126,19 @@ namespace MWMechanics
                 std::optional<float> rand;
                 if ( !rand.has_value() )
                 {
-                if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Nothing)
+                    rand = Misc::Rng::rollProbability();
+                }
+                if (actor.getClass().getCreatureStats(actor).getDrawState() == MWMechanics::DrawState_Weapon)
                     {
-                     rand = Misc::Rng::rollProbability();
+                     return 0.f;
                     }
-                }
+                
 
-                if (rand >= 80/100.f)
+                if (rand >= 50/100.f)
                 {
-                    return 1000.f;
-                }
-                else
                     return 0.f;
+                }
+                
                 
                                   
             }
