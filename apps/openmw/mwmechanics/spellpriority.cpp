@@ -128,8 +128,13 @@ namespace MWMechanics
             const ESM::Race* race = MWBase::Environment::get().getWorld()->getStore().get<ESM::Race>().find(raceid);
             if (race->mPowers.exists(spell->mId))
                     {
+                    std::optional<float> rand;
+                    
+                    if (rand != 1)
+                      
                 //if (rand < 40/100.f)
                     return 1000.f;
+                        rand = 1
                     }
             }
             else
