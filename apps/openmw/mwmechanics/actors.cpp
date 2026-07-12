@@ -464,13 +464,13 @@ namespace MWMechanics
 
     void Actors::updateActor (const MWWorld::Ptr& ptr, float duration)
     {
-        //
-            if ( ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() != double fort )
-            {       
-            fort = 0 +
-            ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 1;
-            calculateDynamicStats (ptr);
-            }
+        //        
+        DynamicStat<float> magicka = ptr.getClass().getCreatureStats(ptr).getMagicka();
+        magicka.setBase(1);
+        magicka.setModified(1, 0);
+        magicka.setCurrent(1, false, true);
+        ptr.getClass().getCreatureStats(ptr).setMagicka(magicka);
+        
         // magic effects
         adjustMagicEffects (ptr);
         if (ptr.getClass().getCreatureStats(ptr).needToRecalcDynamicStats())
