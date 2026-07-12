@@ -892,7 +892,7 @@ namespace MWMechanics
         
         //magicka.setModified(1, 0);//edit
         //magicka.setCurrent(1, false, true);//edit
-        //magicka.setModified(100, 0);//recent1setsmagickato100works
+        magicka.setModified((magicka.getBase() + fort), 0);//recent1setsmagickato100works
         magicka.setBase(magicka.getModified());//recent1setsmagickato100works
         creatureStats.setMagicka(magicka);
     }
