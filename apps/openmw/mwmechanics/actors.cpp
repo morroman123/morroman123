@@ -464,6 +464,13 @@ namespace MWMechanics
 
     void Actors::updateActor (const MWWorld::Ptr& ptr, float duration)
     {
+        //
+            if ( ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() != fort )
+            {       
+            double fort = 0 +
+            ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 1;
+            calculateDynamicStats (ptr);
+            }
         // magic effects
         adjustMagicEffects (ptr);
         if (ptr.getClass().getCreatureStats(ptr).needToRecalcDynamicStats())
@@ -869,13 +876,13 @@ namespace MWMechanics
         double magickaFactor = base +
             creatureStats.getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMaximumMagicka)).getMagnitude() * 0.1;
 
-        double fort = 0 +
-            creatureStats.getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 1;
+        //double fort = 0 +
+            //creatureStats.getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 1;
 
         //float fort = 0 + creatureStats.getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 0.1;//edit
         //DynamicStat<float> magicka = (static_cast<float>(fort)) + creatureStats.getMagicka();
         DynamicStat<float> magicka = creatureStats.getMagicka();
-        magicka.setBase(magicka.getBase() + fort);
+        //magicka.setBase(magicka.getBase() + fort);
         //float magicka2 = magicka;
         //double magicka2 = (static_cast<double>(magicka)) + fort;//edit
         //DynamicStat<float> magicka2 = magicka + fort;//edit
