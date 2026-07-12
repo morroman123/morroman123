@@ -881,8 +881,9 @@ namespace MWMechanics
         
         
         DynamicStat<float> magicka = creatureStats.getMagicka();
-        float magickaBase = (magicka.getModified());
-         magicka.setBase(magickaBase);     
+        //float magickaBase = (magicka.getModified());
+         //magicka.setBase(magickaBase);//no effect observed 
+        magicka.setBase(fort);
         float diff = (static_cast<int>(magickaFactor*intelligence)) - magicka.getBase();
         float currentToBaseRatio = (magicka.getCurrent() / magicka.getBase()); 
         
