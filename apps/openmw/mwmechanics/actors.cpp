@@ -464,16 +464,13 @@ namespace MWMechanics
 
     void Actors::updateActor (const MWWorld::Ptr& ptr, float duration)
     {
-        //        
-        DynamicStat<float> magicka = ptr.getClass().getCreatureStats(ptr).getMagicka();
-        magicka.setBase(1);
-        magicka.setModified(1, 0);
-        magicka.setCurrent(1, false, true);
-        ptr.getClass().getCreatureStats(ptr).setMagicka(magicka);
+        //
+
+        
         
         // magic effects
         adjustMagicEffects (ptr);
-        if (ptr.getClass().getCreatureStats(ptr).needToRecalcDynamicStats())
+        //if (ptr.getClass().getCreatureStats(ptr).needToRecalcDynamicStats())//edit should be in
             calculateDynamicStats (ptr);
 
         calculateCreatureStatModifiers (ptr, duration);
@@ -876,23 +873,35 @@ namespace MWMechanics
         double magickaFactor = base +
             creatureStats.getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMaximumMagicka)).getMagnitude() * 0.1;
 
-        //double fort = 0 +
-            //creatureStats.getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 1;
+        
+        double fort = 0 +
+            creatureStats.getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 1;
+
+        float base = (intelligence * magickaFactor) + fort;
 
         //float fort = 0 + creatureStats.getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 0.1;//edit
         //DynamicStat<float> magicka = (static_cast<float>(fort)) + creatureStats.getMagicka();
+        
         DynamicStat<float> magicka = creatureStats.getMagicka();
+        
         //magicka.setBase(magicka.getBase() + fort);
         //float magicka2 = magicka;
         //double magicka2 = (static_cast<double>(magicka)) + fort;//edit
         //DynamicStat<float> magicka2 = magicka + fort;//edit
+
+         magicka.setBase(base);
+        
         float diff = (static_cast<int>(magickaFactor*intelligence)) - magicka.getBase();
         float currentToBaseRatio = (magicka.getCurrent() / magicka.getBase());
-        //magicka.setModified(magicka.getModified() + diff, 0);
-        //magicka.setCurrent(magicka.getBase() * currentToBaseRatio, false, true);
-        magicka.setBase(1);
-        magicka.setModified(1, 0);
-        magicka.setCurrent(1, false, true);
+
+        
+        
+        magicka.setModified(magicka.getModified() + diff, 0);
+        magicka.setCurrent(magicka.getBase() * currentToBaseRatio, false, true);
+        
+       
+        //magicka.setModified(1, 0);
+        //magicka.setCurrent(1, false, true);
         creatureStats.setMagicka(magicka);
     }
 
