@@ -897,7 +897,7 @@ namespace MWMechanics
         //magicka.setModified((magicka.getBase() + fort), 0);//recent1setsmagickato100works
         //magicka.setBase(magicka.getModified());//recent1setsmagickato100works
         health.setBase(magicka.getModified());//edit
-        fatigue.setModified(magicka.getModified());//edit
+        fatigue.setModified(magicka.getModified(), 0);//edit
         creatureStats.setMagicka(magicka);
         creatureStats.setHealth(health);//edit
         creatureStats.setFatigue(fatigue);//edit
