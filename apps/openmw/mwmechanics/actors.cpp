@@ -889,18 +889,18 @@ namespace MWMechanics
         float diff = (static_cast<int>(magickaFactor*intelligence)) - magicka.getBase();
         float currentToBaseRatio = (magicka.getCurrent() / magicka.getBase()); 
         
-        //magicka.setModified(magicka.getModified() + diff, 0);//orig
-        //magicka.setCurrent(magicka.getBase() * currentToBaseRatio, false, true);//orig
+        magicka.setModified(magicka.getModified() + diff, 0);//orig
+        magicka.setCurrent(magicka.getBase() * currentToBaseRatio, false, true);//orig
         
         //magicka.setModified(1, 0);//edit
         //magicka.setCurrent(1, false, true);//edit
         //magicka.setModified((magicka.getBase() + fort), 0);//recent1setsmagickato100works
         //magicka.setBase(magicka.getModified());//recent1setsmagickato100works
-        health.setBase(magicka.getModified());//edit
-        fatigue.setModified(magicka.getModified(), 0);//edit
+        //health.setBase(magicka.getModified());//edit
+        //fatigue.setModified(magicka.getModified(), 0);//edit
         creatureStats.setMagicka(magicka);
-        creatureStats.setHealth(health);//edit
-        creatureStats.setFatigue(fatigue);//edit
+        //creatureStats.setHealth(health);//edit
+        //creatureStats.setFatigue(fatigue);//edit
     }
 
     void Actors::restoreDynamicStats (const MWWorld::Ptr& ptr, double hours, bool sleep)
