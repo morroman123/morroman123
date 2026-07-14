@@ -470,7 +470,7 @@ namespace MWMechanics
         
         // magic effects
         adjustMagicEffects (ptr);
-        //if (ptr.getClass().getCreatureStats(ptr).needToRecalcDynamicStats())//edit should be in
+        if (ptr.getClass().getCreatureStats(ptr).needToRecalcDynamicStats())//edit should be in
             calculateDynamicStats (ptr);
 
         calculateCreatureStatModifiers (ptr, duration);
