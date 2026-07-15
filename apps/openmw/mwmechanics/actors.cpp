@@ -465,24 +465,39 @@ namespace MWMechanics
     void Actors::updateActor (const MWWorld::Ptr& ptr, float duration)
     {
         //
+            float strength = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Strength).getModified();
+            float endurance = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Endurance).getModified();
+            float willpower = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Willpower).getModified();
+            float agility = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Agility).getModified();
             float intelligence = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Intelligence).getModified();
             float base = 1.f;
 
             double magickaFactor = base +
             ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMaximumMagicka)).getMagnitude() * 0.1;
 
-            double fort = 0 +
+            double fortMagicka = 0 +
             ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 1;
+
+            double fortFatigue = 0 +
+            ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyFatigue)).getMagnitude() * 1;
     
             DynamicStat<float> health = ptr.getClass().getCreatureStats(ptr).getHealth();//edit
             DynamicStat<float> magicka = ptr.getClass().getCreatureStats(ptr).getMagicka();//edit
+            DynamicStat<float> fatigue = ptr.getClass().getCreatureStats(ptr).getFatigue();
 
         if (ptr == getPlayer())//edit block
         {
             
+                float magickaSet = ((intelligence * magickaFactor) + fortMagicka);
+                float fatigueSet = (strength + endurance + agility + willpower + fortFatigue);
+
+                if( fatigue.getBase() != fatigueSet )
+                {
+                    fatigue.setBase(fatigueSet);
+                }
                 //if (magicka.getCurrent() > health.getBase())
                 //{
-                    magicka.setBase((intelligence * magickaFactor) + fort);
+                    magicka.setBase((intelligence * magickaFactor) + fortMagicka);
                     ptr.getClass().getCreatureStats(ptr).setMagicka(magicka);
                 //}
         }
