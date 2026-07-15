@@ -466,7 +466,7 @@ namespace MWMechanics
     {
         //
 
-        if (ptr == getPlayer())//edit block
+        if (ptr != getPlayer())//edit block
         {
             DynamicStat<float> health = ptr.getClass().getCreatureStats(ptr).getHealth();//edit
                 if (health.getCurrent() > health.getBase())
