@@ -465,10 +465,31 @@ namespace MWMechanics
     void Actors::updateActor (const MWWorld::Ptr& ptr, float duration)
     {
         //
+            float intelligence = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Intelligence).getModified();
+            float base = 1.f;
 
+            double magickaFactor = base +
+            ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMaximumMagicka)).getMagnitude() * 0.1;
+
+            double fort = 0 +
+            ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 1;
+    
+            DynamicStat<float> health = ptr.getClass().getCreatureStats(ptr).getHealth();//edit
+            DynamicStat<float> magicka = ptr.getClass().getCreatureStats(ptr).getMagicka();//edit
+
+        if (ptr == getPlayer())//edit block
+        {
+            
+                //if (magicka.getCurrent() > health.getBase())
+                //{
+                    magicka.setBase((intelligence * magickaFactor) + fort);
+                    ptr.getClass().getCreatureStats(ptr).setMagicka(magicka);
+                //}
+        }
+        
         if (ptr != getPlayer())//edit block
         {
-            DynamicStat<float> health = ptr.getClass().getCreatureStats(ptr).getHealth();//edit
+            
                 if (health.getCurrent() > health.getBase())
                 {
                     health.setBase(health.getCurrent());
