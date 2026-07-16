@@ -78,7 +78,7 @@ namespace MWMechanics
                             rebuild = true;
 
                             // Note: it we expire a Corprus effect, we should remove the whole spell.
-                            if (effectIt->mEffectId == ESM::MagicEffect::Corprus)
+                            if (effectIt->mEffectId == ESM::MagicEffect::Corprus || effectIt->mEffectId == ESM::MagicEffect::FortifyHealth )
                             {
                                 iter = mSpells.erase (iter);
                                 interrupt = true;
