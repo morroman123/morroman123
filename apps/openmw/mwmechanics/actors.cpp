@@ -465,6 +465,36 @@ namespace MWMechanics
     void Actors::updateActor (const MWWorld::Ptr& ptr, float duration)
     {
         //
+            //float level = ptr.getClass().getCreatureStats(ptr).getLevel();
+        
+            //float strength = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Strength).getModified();
+            //float strengthBase = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Strength).getBase();
+            //float endurance = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Endurance).getModified();
+            //float enduranceBase = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Endurance).getBase();
+            //float willpower = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Willpower).getModified();
+            //float agility = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Agility).getModified();
+            //float intelligence = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Intelligence).getModified();
+            //float base = 1.f;
+
+            //double magickaFactor = base +
+            //ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMaximumMagicka)).getMagnitude() * 0.1;
+
+            //double fortMagicka = 0 +
+            //ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyMagicka)).getMagnitude() * 1;
+
+            //double fortFatigue = 0 +
+            //ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyFatigue)).getMagnitude() * 1;
+
+            //double fortHealth = 0 +
+            //ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyHealth)).getMagnitude() * 1;
+    
+            DynamicStat<float> health = ptr.getClass().getCreatureStats(ptr).getHealth();//edit
+            DynamicStat<float> magicka = ptr.getClass().getCreatureStats(ptr).getMagicka();//edit
+            DynamicStat<float> fatigue = ptr.getClass().getCreatureStats(ptr).getFatigue();
+
+        if (ptr == getPlayer())//edit block
+        {
+            //
             float level = ptr.getClass().getCreatureStats(ptr).getLevel();
         
             float strength = ptr.getClass().getCreatureStats(ptr).getAttribute(ESM::Attribute::Strength).getModified();
@@ -487,14 +517,8 @@ namespace MWMechanics
 
             double fortHealth = 0 +
             ptr.getClass().getCreatureStats(ptr).getMagicEffects().get (EffectKey (ESM::MagicEffect::FortifyHealth)).getMagnitude() * 1;
-    
-            DynamicStat<float> health = ptr.getClass().getCreatureStats(ptr).getHealth();//edit
-            DynamicStat<float> magicka = ptr.getClass().getCreatureStats(ptr).getMagicka();//edit
-            DynamicStat<float> fatigue = ptr.getClass().getCreatureStats(ptr).getFatigue();
-
-        if (ptr == getPlayer())//edit block
-        {
-            
+                
+                //
                 float magickaSet = ((intelligence * magickaFactor) + fortMagicka);
                 float fatigueSet = (strength + endurance + agility + willpower + fortFatigue);
                 float strengthMod = (strength - strengthBase) / 2;
@@ -504,7 +528,9 @@ namespace MWMechanics
 
                 if( health.getBase() != healthSet )
                 {
+                    float healthRatio = ( health.getCurrent() / health.getBase() );
                     health.setBase(healthSet);
+                    health.setCurrent(healthSet * healthRatio);
                     ptr.getClass().getCreatureStats(ptr).setHealth(health);
                 }
 
