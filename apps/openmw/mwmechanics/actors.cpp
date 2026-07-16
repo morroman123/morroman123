@@ -499,7 +499,7 @@ namespace MWMechanics
                 float fatigueSet = (strength + endurance + agility + willpower + fortFatigue);
                 float strengthMod = (strength - strengthBase);
                 float enduranceMod = (endurance - enduranceBase); 
-                float healthSet = ((strengthBase + strengthMod) * 0.2 ) + ((enduranceBase + enduranceMod) * 1.5) + fortHealth) + (level * 1.5);
+                float healthSet = ((strengthBase + strengthMod) * 0.2 ) + (((enduranceBase + enduranceMod) * 1.5) + fortHealth) + (level * 1.5);
 
                 if( health.getBase() != healthSet )
                 {
