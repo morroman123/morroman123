@@ -536,12 +536,16 @@ namespace MWMechanics
 
                 if( fatigue.getBase() != fatigueSet )
                 {
+                    float fatigueRatio = ( fatigue.getCurrent() / fatigue.getBase() );
                     fatigue.setBase(fatigueSet);
+                    fatigue.setCurrent(fatigueSet * fatigueRatio);
                     ptr.getClass().getCreatureStats(ptr).setFatigue(fatigue);
                 }
                 if (magicka.getBase() != magickaSet)
                 {
+                    float magickaRatio = ( magicka.getCurrent() / magicka.getBase() );
                     magicka.setBase(magickaSet);
+                    magicka.setCurrent(magickaSet * magickaRatio);
                     ptr.getClass().getCreatureStats(ptr).setMagicka(magicka);
                 }
         }
