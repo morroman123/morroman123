@@ -495,7 +495,9 @@ namespace MWMechanics
             
                 float magickaSet = ((intelligence * magickaFactor) + fortMagicka);
                 float fatigueSet = (strength + endurance + agility + willpower + fortFatigue);
-                float healthSet = (strength + endurance + agility + willpower + fortFatigue);
+                float strengthMod = (strength - strengthBase);
+                float enduranceMod = (endurance - enduranceBase); 
+                float healthSet = ((strengthBase + strengthMod) * 0.2 ) + ((enduranceBase + enduranceMod) * 1.5) + fortHealth);
 
                 if( health.getBase() != healthSet )
                 {
