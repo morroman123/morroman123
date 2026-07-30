@@ -2975,7 +2975,8 @@ void CharacterController::setVisibility(float visibility)
         float alpha = 1.f;
         //bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak);
         //if mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak) == true
-        
+
+        if (sneakTest)
          alpha = 0.1f;
         
         //if mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak) == false
