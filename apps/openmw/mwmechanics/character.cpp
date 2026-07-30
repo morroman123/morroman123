@@ -2968,6 +2968,7 @@ void CharacterController::updateMagicEffects()
 void CharacterController::setVisibility(float visibility)
 {
     // We should take actor's invisibility in account
+    bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak);
     if (mPtr.getClass().isActor())
     {
         //edit
