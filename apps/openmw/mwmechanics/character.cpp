@@ -2971,11 +2971,12 @@ void CharacterController::setVisibility(float visibility)
     if (mPtr.getClass().isActor())
     {
         //edit
-        bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak) && !flying;
-        if sneakTest == true
-        float alpha = 0.1f;
-        if sneakTest == false
-        float alpha = 1.f;
+        float alpha = 1f;
+        //bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak);
+        if mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak) == true
+         alpha = 0.1f;
+        if mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak) == false
+         alpha = 1.f;
         if (mPtr.getClass().getCreatureStats(mPtr).getMagicEffects().get(ESM::MagicEffect::Invisibility).getModifier()) // Ignore base magnitude (see bug #3555).
         {
             if (mPtr == getPlayer())
