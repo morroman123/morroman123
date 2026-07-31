@@ -2981,21 +2981,16 @@ void CharacterController::setVisibility(float visibility)
         float sneakRatio = (playerSneak / npcSneak) / 2;
         //edit
         float alpha = 1.f;
-        
+        float sneakMult = 1.f;
+
+        if sneakRatio > 4
+            sneakRatio  = 4;
 
         if (sneakTest)
-         alpha = 0.1f;
+         sneakMult = 0.25f * sneakRatio;
 
-        if alpha > 1
-        alpha = 1.f;
+    
 
-        if alpha < 0.1
-        alpha = 0.1f;
-            
-            
-        
-        
-        
         if (mPtr.getClass().getCreatureStats(mPtr).getMagicEffects().get(ESM::MagicEffect::Invisibility).getModifier()) // Ignore base magnitude (see bug #3555).
         {
             if (mPtr == getPlayer())
@@ -3008,7 +3003,8 @@ void CharacterController::setVisibility(float visibility)
         {
             alpha *= std::min(0.75f, std::max(0.25f, (100.f - chameleon)/100.f));
         }
-
+        float sneakAlpha = alpha * sneakMult;
+        
         visibility = std::min(visibility, alpha);
     }
 
