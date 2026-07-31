@@ -2969,25 +2969,26 @@ void CharacterController::setVisibility(float visibility)
 {
     // We should take actor's invisibility in account
     bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak);
-    if (mPtr.getClass().isActor())
-    {
-    float npcSneak = mPtr.getClass().getSkill(mPtr, ESM::Skill::Sneak);
-    }
+    //if (mPtr.getClass().isActor())
+    //{
+    //float npcSneak = mPtr.getClass().getSkill(mPtr, ESM::Skill::Sneak);
+    //}
     float playerSneak = getPlayer().getClass().getSkill(mPtr, ESM::Skill::Sneak);
     
     
     if (mPtr.getClass().isActor())
     {
+        float npcSneak = mPtr.getClass().getSkill(mPtr, ESM::Skill::Sneak);
         float sneakRatio = (playerSneak / npcSneak) / 2;
         //edit
         float alpha = 1.f;
         float sneakMult = 1.f;
 
-        if sneakRatio > 4
-            sneakRatio  = 4;
+        //if sneakRatio > 4
+            //sneakRatio  = 4;
 
-        if (sneakTest)
-         sneakMult = 0.25f * sneakRatio;
+        //if (sneakTest)
+         //sneakMult = 0.25f * sneakRatio;
 
     
 
@@ -3003,7 +3004,7 @@ void CharacterController::setVisibility(float visibility)
         {
             alpha *= std::min(0.75f, std::max(0.25f, (100.f - chameleon)/100.f));
         }
-        float sneakAlpha = alpha * sneakMult;
+        //float sneakAlpha = alpha * sneakMult;
         
         visibility = std::min(visibility, alpha);
     }
