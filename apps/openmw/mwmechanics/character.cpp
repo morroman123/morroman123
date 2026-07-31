@@ -2968,7 +2968,7 @@ void CharacterController::updateMagicEffects()
 void CharacterController::setVisibility(float visibility)
 {
     // We should take actor's invisibility in account
-    bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak);
+    
     //if (mPtr.getClass().isActor())
     //{
     //float npcSneak = mPtr.getClass().getSkill(mPtr, ESM::Skill::Sneak);
@@ -2978,6 +2978,7 @@ void CharacterController::setVisibility(float visibility)
     
     if (mPtr.getClass().isActor())
     {
+        bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak);
         float npcSneak = mPtr.getClass().getSkill(mPtr, ESM::Skill::Sneak);
         float sneakRatio = (playerSneak / npcSneak) / 2;
         //edit
@@ -2988,7 +2989,8 @@ void CharacterController::setVisibility(float visibility)
             //sneakRatio  = 4.f;
 
         if (sneakTest)
-         sneakMult = 0.25f * sneakRatio;
+         //sneakMult = 0.25f * sneakRatio;
+            sneakMult = npcSneak / 10;
 
     
 
