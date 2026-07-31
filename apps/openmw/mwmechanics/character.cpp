@@ -2978,17 +2978,23 @@ void CharacterController::setVisibility(float visibility)
     
     if (mPtr.getClass().isActor())
     {
+        float sneakRatio = (playerSneak / npcSneak) / 2;
         //edit
         float alpha = 1.f;
-        //bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak);
-        //if mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak) == true
+        
 
         if (sneakTest)
          alpha = 0.1f;
+
+        if alpha > 1
+        alpha = 1.f;
+
+        if alpha < 0.1
+        alpha = 0.1f;
+            
+            
         
-        //if mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak) == false
         
-         //alpha = 1.f;
         
         if (mPtr.getClass().getCreatureStats(mPtr).getMagicEffects().get(ESM::MagicEffect::Invisibility).getModifier()) // Ignore base magnitude (see bug #3555).
         {
