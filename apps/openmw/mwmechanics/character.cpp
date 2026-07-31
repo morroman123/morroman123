@@ -2969,7 +2969,10 @@ void CharacterController::setVisibility(float visibility)
 {
     // We should take actor's invisibility in account
     bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak);
+    if (mPtr.getClass().isActor())
+    {
     float npcSneak = mPtr.getClass().getSkill(mPtr, ESM::Skill::Sneak);
+    }
     float playerSneak = getPlayer().getClass().getSkill(mPtr, ESM::Skill::Sneak);
     
     
