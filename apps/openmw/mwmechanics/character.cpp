@@ -2973,11 +2973,12 @@ void CharacterController::setVisibility(float visibility)
     //{
     //float npcSneak = mPtr.getClass().getSkill(mPtr, ESM::Skill::Sneak);
     //}
-    float playerSneak = getPlayer().getClass().getSkill(mPtr, ESM::Skill::Sneak);
+    
     //move sneaktest into actor below
     
     if (mPtr.getClass().isActor())
     {
+        float playerSneak = getPlayer().getClass().getSkill(mPtr, ESM::Skill::Sneak);
         bool sneakTest = mPtr.getClass().getCreatureStats(mPtr).getStance(MWMechanics::CreatureStats::Stance_Sneak);
         float npcSneak = mPtr.getClass().getSkill(mPtr, ESM::Skill::Sneak);
         float sneakRatio = (playerSneak / npcSneak) / 2;
