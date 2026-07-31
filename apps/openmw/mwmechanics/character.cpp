@@ -2984,8 +2984,8 @@ void CharacterController::setVisibility(float visibility)
         float alpha = 1.f;
         float sneakMult = 1.f;
 
-        //if sneakRatio > 4
-            //sneakRatio  = 4;
+        if sneakRatio > 4
+            sneakRatio  = 4;
 
         if (sneakTest)
          sneakMult = 0.25f * sneakRatio;
@@ -3006,7 +3006,8 @@ void CharacterController::setVisibility(float visibility)
         }
         float sneakAlpha = alpha * sneakMult;
         
-        visibility = std::min(visibility, alpha);
+        //visibility = std::min(visibility, alpha);
+        visibility = std::min(visibility, sneakAlpha);
     }
 
     // TODO: implement a dithering shader rather than just change object transparency.
