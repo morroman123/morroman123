@@ -2987,8 +2987,8 @@ void CharacterController::setVisibility(float visibility)
         //if sneakRatio > 4
             //sneakRatio  = 4;
 
-        //if (sneakTest)
-         //sneakMult = 0.25f * sneakRatio;
+        if (sneakTest)
+         sneakMult = 0.25f * sneakRatio;
 
     
 
