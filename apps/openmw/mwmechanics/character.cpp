@@ -2974,7 +2974,7 @@ void CharacterController::setVisibility(float visibility)
     //float npcSneak = mPtr.getClass().getSkill(mPtr, ESM::Skill::Sneak);
     //}
     float playerSneak = getPlayer().getClass().getSkill(mPtr, ESM::Skill::Sneak);
-    
+    //move sneaktest into actor below
     
     if (mPtr.getClass().isActor())
     {
@@ -3004,7 +3004,7 @@ void CharacterController::setVisibility(float visibility)
         {
             alpha *= std::min(0.75f, std::max(0.25f, (100.f - chameleon)/100.f));
         }
-        //float sneakAlpha = alpha * sneakMult;
+        float sneakAlpha = alpha * sneakMult;
         
         visibility = std::min(visibility, alpha);
     }
