@@ -2013,8 +2013,8 @@ namespace MWRender
                 const bool specularMaps = materialUsesSpecularMaps(materialQuality);
                 mResourceSystem->getSceneManager()->setAutoUseNormalMaps(normalMaps);
                 mResourceSystem->getSceneManager()->setAutoUseSpecularMaps(specularMaps);
-                if (mTerrainStorage)
-                    mTerrainStorage->setAutoUseMaterialMaps(normalMaps, specularMaps);
+                //if (mTerrainStorage)
+                    //mTerrainStorage->setAutoUseMaterialMaps(normalMaps, specularMaps);
                 refreshMaterialQuality = true;
                 refreshShaderDefines = true;
                 rebuildTerrainViews = true;
