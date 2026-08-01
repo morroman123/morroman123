@@ -424,8 +424,7 @@ namespace MWMechanics
             return false;
         }
 
-        const float maxDistance = std::max(0.f,
-            Settings::Manager::getFloat("combat pursuit max distance", "Game"));
+        const float maxDistance = 4000.f;
         if (maxDistance <= 0.f)
             return false;
 
